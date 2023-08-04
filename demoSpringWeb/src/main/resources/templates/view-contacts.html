@@ -1,31 +1,35 @@
 <!doctype html>
-<html>
+<!-- Copyright (c) 2023 the original author or authors. -->
+<html layout:decorate="~{_template.html}">
 
 <head>
-	<meta charset="utf-8" />
 	<title>TODO 2</title>
 </head>
 
 <body>
 
-	<table>
-		<thead>
-			<tr>
-				<th scope="col">Prénom</th>
-				<th scope="col">Nom</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="contact : ${modelListeContacts}">
-				<td th:text="${contact.prenom}"></td>
-				<td th:text="${contact.nom}"></td>
-			</tr>
-			<tr data-th-each="contact : ${modelListeContacts}">
-				<td data-th-text="${contact.prenom}"></td>
-				<td data-th-text="${contact.nom}"></td>
-			</tr>
-		</tbody>
-	</table>
+	<main layout:fragment="content">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Prénom</th>
+					<th scope="col">Nom</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="contact : ${modelListeContacts}">
+					<td th:text="${contact.prenom}"></td>
+					<td th:text="${contact.nom}"></td>
+				</tr>
+				<!--/*
+					<tr data-th-each="contact : ${modelListeContacts}">
+						<td data-th-text="${contact.prenom}"></td>
+						<td data-th-text="${contact.nom}"></td>
+					</tr>
+				*/-->
+			</tbody>
+		</table>
+	</main>
 
 </body>
 

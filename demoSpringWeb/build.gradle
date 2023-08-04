@@ -15,8 +15,9 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.+' // ultraq layout
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // thymeleaf
+	implementation 'org.springframework.boot:spring-boot-starter-web' // controllers
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
