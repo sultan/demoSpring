@@ -1,6 +1,6 @@
 // Copyright (c) 2023 the original author or authors. //
 
-package fr.eni.demo.controllers;
+package fr.eni.demo.services;
 
 import java.util.List;
 
