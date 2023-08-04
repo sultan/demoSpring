@@ -1,3 +1,5 @@
+// Copyright (c) 2023 the original author or authors. //
+
 package fr.eni.demo;
 
 import org.springframework.boot.SpringApplication;

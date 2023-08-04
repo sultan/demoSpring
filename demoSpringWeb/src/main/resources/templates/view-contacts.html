@@ -1,15 +1,32 @@
 <!doctype html>
 <html>
+
 <head>
 	<meta charset="utf-8" />
 	<title>TODO 2</title>
 </head>
+
 <body>
 
-<h1 th:text="${modelMessage}"></h1>
-
-<p th:text="${modelContact.prenom}"></p>
-<p th:text="${modelContact.nom}"></p>
+	<table>
+		<thead>
+			<tr>
+				<th scope="col">Prénom</th>
+				<th scope="col">Nom</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="contact : ${modelListeContacts}">
+				<td th:text="${contact.prenom}"></td>
+				<td th:text="${contact.nom}"></td>
+			</tr>
+			<tr data-th-each="contact : ${modelListeContacts}">
+				<td data-th-text="${contact.prenom}"></td>
+				<td data-th-text="${contact.nom}"></td>
+			</tr>
+		</tbody>
+	</table>
 
 </body>
+
 </html>

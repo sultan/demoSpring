@@ -1,3 +1,5 @@
+// Copyright (c) 2023 the original author or authors. //
+
 package fr.eni.demo.entities;
 
 public class Personne {
@@ -6,6 +8,12 @@ public class Personne {
 
 	public Personne() {
 		super();
+	}
+
+	public Personne(String prenom, String nom) {
+		super();
+		this.prenom = prenom;
+		this.nom = nom;
 	}
 
 	@Override

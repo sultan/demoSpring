@@ -1,11 +1,10 @@
+// Copyright (c) 2023 the original author or authors. //
+
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.1.2'
+	id 'org.springframework.boot' version '3.1.+'
 	id 'io.spring.dependency-management' version '1.1.2'
 }
-
-group = 'fr.eni.demo'
-version = '0.0.1-SNAPSHOT'
 
 java {
 	sourceCompatibility = '17'

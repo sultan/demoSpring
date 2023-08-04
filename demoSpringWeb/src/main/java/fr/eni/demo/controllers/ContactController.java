@@ -1,4 +1,8 @@
+// Copyright (c) 2023 the original author or authors. //
+
 package fr.eni.demo.controllers;
+
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,8 +17,11 @@ public class ContactController {
 	public Object save(Personne contact) {
 		System.out.println(contact.toString());
 		System.out.println("traitement");
-		return new ModelAndView("view-contacts", "modelContact", contact)
-				.addObject("modelMessage", "Bienvenu " + contact.getPrenom())
+
+		var contacts = List.of(new Personne("Alice", "Durand"), new Personne("Bob", "Martin"));
+
+		return new ModelAndView("view-contacts", "modelListeContacts", contacts)
+		// .addObject("modelMessage", "Bienvenu " + contact.getPrenom())
 		// .addObject("modelContact", contact)
 		;
 	}
