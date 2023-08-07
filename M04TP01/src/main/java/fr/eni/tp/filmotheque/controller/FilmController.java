@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.eni.tp.filmotheque.bll.FilmService;
@@ -20,13 +21,14 @@ public class FilmController {
 		this.filmService = filmService;
 	}
 
-	public void afficherUnFilm(int id) {
+	@GetMapping("/films/detail")
+	public Object afficherUnFilm(@RequestParam("id") int id) {
 
 		// interroger la couche BLL pour un seul film
 		Film film = filmService.consulterFilmParId(id);
-		
-		// delegation de l'affichage à la méthode println
-		System.out.println(film);
+
+		// delegation de l'affichage à la vue
+		return new ModelAndView("view-film-detail", "modelFilm", film);
 	}
 
 	@GetMapping("/films")
@@ -34,7 +36,8 @@ public class FilmController {
 
 		// interroger la couche BLL pour tous les films
 		List<Film> films = filmService.consulterFilms();
-		
+
+		// delegation de l'affichage à la vue
 		return new ModelAndView("view-films", "modelFilms", films);
 	}
 
