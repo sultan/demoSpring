@@ -5,17 +5,15 @@ package fr.eni.demo.services.mock;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import fr.eni.demo.entities.Personne;
 import fr.eni.demo.services.ContactService;
 
-@Service
+//@Service
 public class ContactServiceBouchon implements ContactService {
 
 	private static List<Personne> contacts = new ArrayList<>( //
 			List.of(new Personne("Alice", "Durand"), //
-			new Personne("Bob", "Martin")));
+					new Personne("Bob", "Martin")));
 
 	@Override
 	public void ajouterContact(Personne contact) {

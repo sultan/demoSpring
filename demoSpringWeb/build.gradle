@@ -15,9 +15,19 @@ repositories {
 }
 
 dependencies {
+
+	// frontend //
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.+' // ultraq layout
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // thymeleaf
+
+	// backend //
 	implementation 'org.springframework.boot:spring-boot-starter-web' // controllers
+
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
