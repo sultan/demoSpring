@@ -1,0 +1,39 @@
+<!doctype html>
+<html data-layout-decorate="~{layouts/layout.html}">
+
+<head>
+	<title>Les films</title>
+</head>
+
+<body>
+
+	<main data-layout-fragment="content">
+
+		<h1>Les films</h1>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Genre</th>
+					<th scope="col">Année</th>
+					<th scope="col">Titre</th>
+					<th scope="col">Réalisateur</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="film : ${modelFilms}">
+					<td th:text="${film.genre.titre}"></td>
+					<td th:text="${film.annee}"></td>
+					<td th:text="${film.titre}"></td>
+					<td th:text="${film.realisateur.nom + ' ' + film.realisateur.prenom}"></td>
+					<td><a th:href="@{/films/detail(id=${film.id})}">Détail</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</main>
+
+</body>
+
+</html>

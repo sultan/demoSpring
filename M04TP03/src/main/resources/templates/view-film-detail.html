@@ -1,0 +1,48 @@
+<!doctype html>
+<html data-layout-decorate="~{layouts/layout.html}">
+
+<head>
+	<title>Détail du film</title>
+</head>
+
+<body>
+
+	<main data-layout-fragment="content">
+
+		<h1>Détail du film</h1>
+
+		<dl>
+
+			<dt>Genre :</dt>
+			<dd th:text="${modelFilm.genre.titre}"></dd>
+
+			<dt>Année :</dt>
+			<dd th:text="${modelFilm.annee}"></dd>
+
+			<dt>Titre :</dt>
+			<dd th:text="${modelFilm.titre}"></dd>
+
+			<dt>Réalisateur :</dt>
+			<dd th:text="${modelFilm.realisateur.nom}"></dd>
+
+			<dt>Durée :</dt>
+			<dd th:text="${modelFilm.duree}"></dd>
+
+			<dt>Acteur(s) :</dt>
+			<dd>
+				<ul>
+					<li th:each="acteur : ${modelFilm.acteurs}" th:text="${acteur.nom}">
+					</li>
+				</ul>
+			</dd>
+
+			<dt>Synopsis :</dt>
+			<dd th:text="${modelFilm.synopsis}"></dd>
+
+		</dl>
+
+	</main>
+
+</body>
+
+</html>

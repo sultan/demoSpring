@@ -1,0 +1,21 @@
+<!doctype html>
+<html data-layout-decorate="~{layouts/layout.html}">
+
+<head>
+	<title>Accueil</title>
+</head>
+
+<body>
+
+	<main data-layout-fragment="content">
+		<h1>Contextes</h1>
+		<a data-th-href="@{/login(email=${user.pseudo})}"
+			data-th-each="user:${#ctx.session.usersSession}"
+			data-th-text="${user.prenom}"
+			class="btn btn-primary"
+			> </a>
+	</main>
+
+</body>
+
+</html>
