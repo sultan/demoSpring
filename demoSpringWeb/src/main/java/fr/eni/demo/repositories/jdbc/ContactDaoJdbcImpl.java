@@ -28,6 +28,13 @@ public class ContactDaoJdbcImpl implements ContactDao {
 	}
 
 	@Override
+	public Personne selectById(int id) {
+		String sqlSelectById = " SELECT * FROM personnes WHERE id = ? ";
+		return jdbc.getJdbcOperations().queryForObject(sqlSelectById, //
+				new BeanPropertyRowMapper<>(Personne.class), id);
+	}
+
+	@Override
 	public List<Personne> selectAll() {
 		String sqlSelectAll = " SELECT * FROM personnes ";
 		return jdbc.getJdbcOperations().query(sqlSelectAll, //

@@ -25,6 +25,11 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	@Override
+	public Personne rechercherContact(int id) {
+		return contactDao.selectById(id);
+	}
+
+	@Override
 	public List<Personne> listerContacts() {
 		return contactDao.selectAll();
 	}

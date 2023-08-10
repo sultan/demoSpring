@@ -4,6 +4,7 @@ package fr.eni.demo.entities;
 
 public class Personne {
 
+	private int id;
 	private String prenom, nom;
 
 	public Personne() {
@@ -19,8 +20,17 @@ public class Personne {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Personne [prenom=").append(prenom).append(", nom=").append(nom).append("]");
+		builder.append("Personne [id=").append(id).append(", prenom=").append(prenom).append(", nom=").append(nom)
+				.append("]");
 		return builder.toString();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getPrenom() {

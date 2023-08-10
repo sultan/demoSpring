@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- Copyright (c) 2023 the original author or authors. -->
-<html layout:decorate="~{_template.html}">
+<html layout:decorate="~{_template.html}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 	<title>TODO</title>
@@ -9,10 +9,15 @@
 <body>
 
 	<main layout:fragment="content">
-		<form action="/contact/save" method="post">
-			Prénom : <input name="prenom" /><br>
-			Nom : <input name="nom" /><br>
-			<input type="submit" />
+		<form th:action="@{/contact/save}" method="post" th:object="${modelContact}">
+
+			<label for="prenom">Prénom : </label>
+			<input th:field="*{prenom}" /><br>
+
+			<label for="nom">Nom : </label>
+			<input th:field="*{nom}" /><br>
+
+			<button type="submit">Enregistrer</button>
 		</form>
 	</main>
 

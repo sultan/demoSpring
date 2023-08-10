@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- Copyright (c) 2023 the original author or authors. -->
-<html layout:decorate="~{_template.html}">
+<html layout:decorate="~{_template.html}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 	<title>TODO 2</title>
@@ -18,15 +18,13 @@
 			</thead>
 			<tbody>
 				<tr th:each="contact : ${modelListeContacts}">
+
 					<td th:text="${contact.prenom}"></td>
+
 					<td th:text="${contact.nom}"></td>
+
+					<td><a class="btn btn-primary" th:href="@{/contact/edit(id=${contact.id})}">Modifier</a></td>
 				</tr>
-				<!--/*
-					<tr data-th-each="contact : ${modelListeContacts}">
-						<td data-th-text="${contact.prenom}"></td>
-						<td data-th-text="${contact.nom}"></td>
-					</tr>
-				*/-->
 			</tbody>
 		</table>
 	</main>

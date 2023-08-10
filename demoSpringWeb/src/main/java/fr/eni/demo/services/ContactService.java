@@ -10,6 +10,8 @@ public interface ContactService {
 
 	public abstract void ajouterContact(Personne contact);
 
+	public abstract Personne rechercherContact(int id);
+
 	public abstract List<Personne> listerContacts();
 
 }

@@ -2,12 +2,11 @@
 
 package fr.eni.demo.controllers;
 
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.eni.demo.entities.Personne;
 import fr.eni.demo.services.ContactService;
@@ -22,36 +21,34 @@ public class ContactController {
 	}
 
 	@GetMapping("/")
-	public Object index() {
+	public Object index(Model model) {
+		Personne p = new Personne();
+		model.addAttribute("modelContact", p);
 		return "form";
 	}
 
-	@PostMapping("/contact/save")
-	public Object save(Personne contact) {
-		System.out.println(contact.toString());
-		System.out.println("traitement");
-
-		// ajout de la personne saisie aux contacts
-		contactService.ajouterContact(contact);
-
-		// récupération de tous les contacts
-		List<Personne> contacts = contactService.listerContacts();
-
-		return new ModelAndView("view-contacts", "modelListeContacts", contacts)
-		// .addObject("modelMessage", "Bienvenu " + contact.getPrenom())
-		// .addObject("modelContact", contact)
-		;
+	@GetMapping("/contact/edit")
+	public Object index(@RequestParam("id") int id, Model model) {
+		System.out.println(id);
+		Personne p = contactService.rechercherContact(id);
+		System.out.println(p);
+		model.addAttribute("modelContact", p);
+		return "form";
 	}
 
-	/*
-	@PostMapping("/contact/save")
-	public String save(Personne contact, Model model) {
-		System.out.println(contact.toString());
-		System.out.println("traitement");
-		model.addAttribute("modelMessage", "Bienvenue " + contact.getPrenom());
-		model.addAttribute("contact", contact);
+	@GetMapping("/contact")
+	public Object list(Model model) {
+		var contacts = contactService.listerContacts();
+		model.addAttribute("modelListeContacts", contacts);
 		return "view-contacts";
 	}
-	*/
+
+	@PostMapping("/contact/save")
+	public Object save(Personne p) {
+		System.out.println(p);
+		contactService.ajouterContact(p);
+		return "redirect:/contact";
+
+	}
 
 }

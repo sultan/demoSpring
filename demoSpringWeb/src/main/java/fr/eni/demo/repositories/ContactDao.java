@@ -10,6 +10,8 @@ public interface ContactDao {
 
 	public abstract void insert(Personne p);
 
+	public abstract Personne selectById(int id);
+
 	public abstract List<Personne> selectAll();
 
 }
