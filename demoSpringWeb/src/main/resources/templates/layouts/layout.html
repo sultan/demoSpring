@@ -15,11 +15,22 @@
 
 <body>
 
-	<header>TODO header</header>
+	<header class="header">
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-sm">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contacts</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/}">Créer Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
 
 	<main layout:fragment="content"></main>
 
-	<footer>TODO footer</footer>
+	<footer>
+		<span>&copy; 2023 Appli Contacts Team</span>
+	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
