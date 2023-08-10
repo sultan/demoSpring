@@ -30,6 +30,12 @@ public class ContactDaoJdbcImpl implements ContactDao {
 	}
 
 	@Override
+	public void update(Personne p) {
+		String sqlUpdate = " UPDATE personnes SET prenom = :prenom , nom = :nom WHERE id = :id ";
+		jdbc.update(sqlUpdate, new BeanPropertySqlParameterSource(p));
+	}
+
+	@Override
 	public Personne selectById(int id) {
 		String sqlSelectById = " SELECT * FROM personnes WHERE id = ? ";
 		return jdbc.getJdbcOperations().queryForObject(sqlSelectById, //

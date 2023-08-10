@@ -25,6 +25,12 @@ public class ContactServiceBouchon implements ContactService {
 	}
 
 	@Override
+	public void modifierContact(Personne contact) {
+		// TODO
+
+	}
+
+	@Override
 	public Personne rechercherContact(int id) {
 		return contacts.stream().filter((p) -> p.getId() == id).findFirst().orElseThrow();
 	}

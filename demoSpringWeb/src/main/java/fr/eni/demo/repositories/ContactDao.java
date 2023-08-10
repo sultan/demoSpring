@@ -8,7 +8,9 @@ import fr.eni.demo.entities.Personne;
 
 public interface ContactDao {
 
-	public abstract void insert(Personne p);
+	public abstract void insert(Personne contact);
+
+	public abstract void update(Personne contact);
 
 	public abstract Personne selectById(int id);
 

@@ -2,6 +2,8 @@
 
 package fr.eni.demo.controllers;
 
+import java.util.Objects;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,7 +48,13 @@ public class ContactController {
 	@PostMapping("/contact/save")
 	public Object save(Personne p) {
 		System.out.println(p);
-		contactService.ajouterContact(p);
+
+		if (Objects.isNull(p.getId()) || Objects.equals(p.getId(), 0)) {
+			contactService.ajouterContact(p);
+		} else {
+			contactService.modifierContact(p);
+		}
+
 		return "redirect:/contact";
 
 	}
