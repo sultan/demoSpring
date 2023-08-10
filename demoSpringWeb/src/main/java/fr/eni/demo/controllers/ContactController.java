@@ -24,7 +24,7 @@ public class ContactController {
 	public Object index(Model model) {
 		Personne p = new Personne();
 		model.addAttribute("modelContact", p);
-		return "form";
+		return "view-contact-edit-form";
 	}
 
 	@GetMapping("/contact/edit")
@@ -33,7 +33,7 @@ public class ContactController {
 		Personne p = contactService.rechercherContact(id);
 		System.out.println(p);
 		model.addAttribute("modelContact", p);
-		return "form";
+		return "view-contact-edit-form";
 	}
 
 	@GetMapping("/contact")

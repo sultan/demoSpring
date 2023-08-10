@@ -4,6 +4,7 @@ package fr.eni.demo.services.mock;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import fr.eni.demo.entities.Personne;
@@ -11,6 +12,7 @@ import fr.eni.demo.repositories.ContactDao;
 import fr.eni.demo.services.ContactService;
 
 @Service
+@Profile("default")
 public class ContactServiceImpl implements ContactService {
 
 	private ContactDao contactDao;

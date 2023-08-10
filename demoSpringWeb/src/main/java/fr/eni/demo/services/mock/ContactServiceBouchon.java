@@ -5,10 +5,14 @@ package fr.eni.demo.services.mock;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
 import fr.eni.demo.entities.Personne;
 import fr.eni.demo.services.ContactService;
 
-//@Service
+@Service
+@Profile("dev")
 public class ContactServiceBouchon implements ContactService {
 
 	private static List<Personne> contacts = new ArrayList<>( //

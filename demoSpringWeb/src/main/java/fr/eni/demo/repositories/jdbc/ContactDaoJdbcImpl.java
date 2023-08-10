@@ -4,6 +4,7 @@ package fr.eni.demo.repositories.jdbc;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
@@ -13,6 +14,7 @@ import fr.eni.demo.entities.Personne;
 import fr.eni.demo.repositories.ContactDao;
 
 @Repository
+@Profile("default")
 public class ContactDaoJdbcImpl implements ContactDao {
 
 	private NamedParameterJdbcOperations jdbc;
